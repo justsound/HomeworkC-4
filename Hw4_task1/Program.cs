@@ -91,17 +91,35 @@ Console.WriteLine(); */
 
 // task7. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
 
-/* int size = ReadInt("Введите размер массива");
-int leftside = ReadInt("Введите начальную границу диапазона массива");
-int rightside = ReadInt("Введите конечную границу диапазона массива");
-int[] arr = CreateArray(size, leftside,rightside);
-PrintArray(arr);
-int max = arr[0];
-int min = arr[0];
+double[] CreatedoubleArray(int size, double leftside, double rightside)
+{
+    double[] array = new double[size];
+    Random random = new Random();
+    for (int i = 0; i < array.Length; i ++)
+        array[i] =  random.NextDouble() * (rightside - leftside) + leftside;
+    return array;
+}
+void PrintdoubleArray(double[] array)
+{
+    Console.WriteLine(string.Join(" ", array));
+    Console.WriteLine();
+}
+double ReadDouble(string message)
+{
+    Console.WriteLine(message);
+    return Convert.ToDouble(Console.ReadLine()!);
+}
+int size = ReadInt("Введите размер массива");
+double leftside = ReadDouble("Введите начальную границу диапазона массива");
+double rightside = ReadDouble("Введите конечную границу диапазона массива");
+double[] arr = CreatedoubleArray(size, leftside, rightside);
+PrintdoubleArray(arr);
+double max = arr[0];
+double min = arr[0];
 for (int i = 1; i < arr.Length; i ++)
 {
     if (arr[i] > max) max = arr[i];
     if (arr[i] < min) min = arr[i];
 } 
 Console.WriteLine(max - min);
-Console.WriteLine(); */
+Console.WriteLine(); 
